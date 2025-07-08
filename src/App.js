@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
-import LoadingScreen from './components/LoadingScreen';
-import profile from './assets/profile.png';
 import profile2 from './assets/profile2.png';
 import logo from './assets/logo.png';
 import logo2 from './assets/logo2.png';
