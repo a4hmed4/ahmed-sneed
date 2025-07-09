@@ -14,21 +14,21 @@ function Hero() {
   const sections = [
     {
       title: "AI & Machine Learning",
-      subtitle: "Building Intelligent Solutions",
-      description: "Expert in computer vision, NLP, and deep learning. Creating AI-powered applications that solve real-world problems.",
-      skills: ["TensorFlow", "PyTorch", "Computer Vision", "NLP", "Deep Learning"],
+      subtitle: "Smart AI Solutions",
+      description: "Expert in computer vision, NLP, and deep learning. I build AI-powered applications that solve real-world problems and automate complex tasks using the latest ML frameworks.",
+      skills: ["TensorFlow", "PyTorch", "NLP"],
     },
     {
       title: "Full Stack Development",
-      subtitle: "End-to-End Solutions",
-      description: "Building scalable web applications with modern technologies. From frontend to backend, I handle it all.",
-      skills: ["React", "Node.js", "Python", "MongoDB", "AWS"],
+      subtitle: "Modern Web Apps",
+      description: "I design and develop scalable, secure web applications from frontend to backend. Skilled in React, Node.js, and cloud deployment for seamless user experiences.",
+      skills: ["React", "Node.js", "AWS"],
     },
     {
       title: "Business Intelligence",
-      subtitle: "Data-Driven Insights",
-      description: "Transforming raw data into actionable insights. Creating dashboards and reports that drive business decisions.",
-      skills: ["Power BI", "SQL", "Data Analysis", "ETL", "Tableau"],
+      subtitle: "Data Insights",
+      description: "Transforming raw data into actionable insights. I create interactive dashboards and reports that empower decision makers and drive business growth.",
+      skills: ["Power BI", "SQL", "ETL"],
     }
   ];
 
@@ -39,16 +39,16 @@ function Hero() {
     return () => clearInterval(interval);
   }, [sections.length]);
 
-  // Scroll to next section (About)
+  // Scroll to AboutHero section
   const handleScrollDown = () => {
-    const aboutSection = document.getElementById('about');
+    const aboutSection = document.getElementById('about-hero-section');
     if (aboutSection) {
       aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-gray-950 via-blue-900 to-[#232946] pt-24 md:pt-28 pb-8 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-br from-gray-950 via-blue-900 to-[#232946] pt-16 md:pt-20 pb-8 overflow-hidden">
       {/* Background Blobs */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <motion.div className="absolute top-10 left-10 w-72 h-72 bg-purple-700 opacity-30 rounded-full blur-3xl" animate={{ y: [0, 40, 0], scale: [1, 1.2, 1] }} transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }} />
@@ -56,19 +56,18 @@ function Hero() {
         <motion.div className="absolute top-1/2 left-1/2 w-80 h-80 bg-green-700 opacity-10 rounded-full blur-2xl" animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }} />
       </div>
       <div className="relative z-10 flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto px-4 gap-8 md:gap-0">
-        {/* Profile Image */}
-        <div className="w-full md:w-1/2 flex justify-center items-start mb-8 md:mb-0 h-72 md:h-screen z-10" style={{marginTop: '-6rem'}}>
+        {/* Profile Image - higher */}
+        <div className="w-full md:w-1/2 flex justify-center items-start mb-8 md:mb-0 h-64 md:h-[70vh] z-10" style={{marginTop: '-8rem'}}>
           <img
             src={profile2}
             alt="Profile Side"
             className="w-auto h-full object-cover rounded-3xl shadow-2xl"
-            style={{objectPosition: 'center'}}
-          />
+            style={{objectPosition: 'center'}} />
         </div>
-        {/* Content Section */}
+        {/* Content Section - shorter */}
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
           <motion.h1
-            className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-[#a7ff83] via-[#17ead9] to-[#005bea] bg-clip-text text-transparent drop-shadow-2xl"
+            className="text-4xl md:text-6xl font-extrabold mb-2 bg-gradient-to-r from-[#a7ff83] via-[#17ead9] to-[#005bea] bg-clip-text text-transparent drop-shadow-2xl"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -76,89 +75,69 @@ function Hero() {
             Ahmed Sneed
           </motion.h1>
           <motion.h2
-            className="text-xl md:text-2xl font-light mb-6 tracking-wide max-w-2xl mx-auto md:mx-0 leading-relaxed text-white/90"
+            className="text-lg md:text-xl font-light mb-3 tracking-wide max-w-2xl mx-auto md:mx-0 leading-relaxed text-white/90"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            AI Engineer & Web Developer
+            AI Engineer | BI Developer | full Stack Developer
           </motion.h2>
           <motion.p
-            className="text-lg text-white/80 mb-8 max-w-xl mx-auto md:mx-0"
+            className="text-base text-white/80 mb-6 max-w-xl mx-auto md:mx-0"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.0, duration: 0.8 }}
           >
-            I build smart solutions using Machine Learning, Full Stack, and Business Intelligence. Passionate about innovation, data, and digital experiences.
+            Passionate about building smart, real-world digital solutions.
           </motion.p>
           {/* Modern Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-            {sections.map((section, idx) => (
-              <div key={section.title} className="bg-blue-900/70 backdrop-blur-md p-6 rounded-2xl shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-300 group border border-blue-800/60">
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-800/60 mb-3">
-                  {/* Icon: use different icon for each card if you want, or same for all */}
-                  {idx === 0 && (
-                    <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
-                  )}
-                  {idx === 1 && (
-                    <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v8m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="12" r="10"/></svg>
-                  )}
-                  {idx === 2 && (
-                    <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><path d="M12 14v7m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="7" r="4"/></svg>
-                  )}
-                </div>
-                <h3 className="font-semibold text-white text-xl mb-1">{section.title}</h3>
-                <p className="text-blue-200 text-base mb-2">{section.subtitle}</p>
-                <p className="text-white/80 text-sm text-center mb-3">{section.description}</p>
-                <div className="flex flex-wrap justify-center gap-2 mt-2">
-                  {section.skills.map(skill => (
-                    <span key={skill} className="px-3 py-1 bg-blue-800/60 text-blue-100 rounded-full text-xs font-medium border border-blue-700/40">{skill}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          {/* Animated main area card - smaller, with icon and more details like original */}
+          <div className="flex justify-center w-full mb-8">
+            <motion.div className="w-full max-w-md" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeSection}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                  className="glass-card p-6 rounded-2xl shadow-xl bg-blue-900/80 border border-blue-800/60"
+                >
+                  <div className="flex flex-col items-center text-center mb-4">
+                    {/* Icon for each area */}
+                    {activeSection === 0 && (
+                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
+                    )}
+                    {activeSection === 1 && (
+                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v8m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="12" r="10"/></svg>
+                    )}
+                    {activeSection === 2 && (
+                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><path d="M12 14v7m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="7" r="4"/></svg>
+                    )}
+                    <h3 className="text-2xl font-bold mb-1 text-white">{sections[activeSection].title}</h3>
+                    <p className="text-blue-200 text-base mb-2">{sections[activeSection].subtitle}</p>
+                    <p className="text-white/80 text-sm mb-2">{sections[activeSection].description}</p>
+                  </div>
+                  <div className="flex flex-wrap justify-center gap-2 mt-2">
+                    {sections[activeSection].skills.map((skill, index) => (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-medium border border-white/20 text-white"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
           </div>
-          {/* Rotating Sections */}
-          <motion.div className="mb-12 max-w-4xl mx-auto" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSection}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="glass-card p-8 rounded-2xl"
-              >
-                <div className={`text-center mb-6`}>
-                  <h3 className="text-3xl md:text-4xl font-bold mb-2 heading-medium text-white">
-                    {sections[activeSection].title}
-                  </h3>
-                  <p className="text-xl text-white/80 mb-4">
-                    {sections[activeSection].subtitle}
-                  </p>
-                  <p className="text-lg text-white/70 leading-relaxed">
-                    {sections[activeSection].description}
-                  </p>
-                </div>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {sections[activeSection].skills.map((skill, index) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 text-white"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </motion.div>
           {/* CTA Buttons */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-end w-full mt-4"
+            className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-end w-full mt-2"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.8 }}
@@ -185,14 +164,13 @@ function Hero() {
           </motion.div>
         </div>
       </div>
-      {/* Creative Down Arrow */}
+      {/* Animated Down Arrow to About Me */}
       <button
         onClick={handleScrollDown}
-        aria-label="Scroll to next section"
-        className="absolute left-1/2 -translate-x-1/2 bottom-4 z-30 flex flex-col items-center"
+        aria-label="Scroll to About Me section"
+        className="absolute left-1/2 -translate-x-1/2 bottom-4 z-30 flex flex-col items-center animate-bounce"
         style={{ outline: 'none' }}
       >
-        {/* Mouse Scroll Icon */}
         <span className="w-8 h-12 flex flex-col items-center">
           <span className="w-6 h-10 rounded-full border-2 border-white/70 flex items-start justify-center relative">
             <span className="w-1 h-3 bg-white rounded-full absolute top-2 left-1/2 -translate-x-1/2 animate-bounce"></span>
@@ -201,6 +179,7 @@ function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 12l4 4 4-4" />
           </svg>
         </span>
+        <span className="text-xs text-white/70 mt-1">About Me</span>
       </button>
     </section>
   );
@@ -1233,7 +1212,7 @@ function SectionTabs() {
 // Move About section to a new AboutHero component for homepage
 function AboutHero() {
   return (
-    <section className="w-full flex flex-col items-center justify-center py-12 px-4">
+    <section id="about-hero-section" className="w-full flex flex-col items-center justify-center py-12 px-4">
       <div className="max-w-3xl w-full bg-blue-950/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-blue-800/60 text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">About Me</h2>
         <p className="text-lg text-gray-300 mb-4">
