@@ -62,9 +62,10 @@ const Navbar = () => {
           <button
             id="mobileMenuBtn"
             onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none"
+            className="md:hidden p-3 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-900/80 shadow-lg"
+            style={{ fontSize: '1.5rem' }}
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -93,13 +94,14 @@ const Navbar = () => {
                 &times;
               </button>
             </div>
-            <div className="flex-1 flex flex-col gap-2 px-6 py-6">
+            <div className="flex-1 flex flex-col gap-4 px-6 py-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-3 py-3 rounded-lg text-lg font-medium transition-colors duration-200 ${location.pathname === item.path ? 'text-blue-400 bg-blue-900/30' : 'text-gray-200 hover:text-blue-400 hover:bg-gray-800/60'}`}
+                  className={`block px-4 py-4 rounded-xl text-xl font-bold transition-colors duration-200 ${location.pathname === item.path ? 'text-blue-400 bg-blue-900/40' : 'text-gray-100 hover:text-blue-400 hover:bg-gray-800/80'}`}
+                  style={{ letterSpacing: '0.04em' }}
                 >
                   {item.name}
                 </Link>

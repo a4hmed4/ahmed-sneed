@@ -5,6 +5,7 @@ import './App.css';
 import profile2 from './assets/profile2.png';
 import logo from './assets/logo.png';
 import logo2 from './assets/logo2.png';
+import LoadingScreen from './components/LoadingScreen';
 
 
 // Hero Section with 3 Main Areas
@@ -16,21 +17,18 @@ function Hero() {
       subtitle: "Building Intelligent Solutions",
       description: "Expert in computer vision, NLP, and deep learning. Creating AI-powered applications that solve real-world problems.",
       skills: ["TensorFlow", "PyTorch", "Computer Vision", "NLP", "Deep Learning"],
-      color: "from-blue-500 to-purple-600"
     },
     {
       title: "Full Stack Development",
       subtitle: "End-to-End Solutions",
       description: "Building scalable web applications with modern technologies. From frontend to backend, I handle it all.",
       skills: ["React", "Node.js", "Python", "MongoDB", "AWS"],
-      color: "from-green-500 to-blue-600"
     },
     {
       title: "Business Intelligence",
       subtitle: "Data-Driven Insights",
       description: "Transforming raw data into actionable insights. Creating dashboards and reports that drive business decisions.",
       skills: ["Power BI", "SQL", "Data Analysis", "ETL", "Tableau"],
-      color: "from-orange-500 to-red-600"
     }
   ];
 
@@ -41,191 +39,170 @@ function Hero() {
     return () => clearInterval(interval);
   }, [sections.length]);
 
+  // Scroll to next section (About)
+  const handleScrollDown = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-gray-950 via-blue-900 to-purple-950 px-4 overflow-hidden pt-20 md:pt-24 relative"
-    >
-      {/* Animated Background Blobs */}
+    <section className="relative w-full bg-gradient-to-br from-gray-950 via-blue-900 to-[#232946] pt-24 md:pt-28 pb-8 overflow-hidden">
+      {/* Background Blobs */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <motion.div
-          className="absolute top-10 left-10 w-72 h-72 bg-purple-700 opacity-30 rounded-full blur-3xl"
-          animate={{ y: [0, 40, 0], scale: [1, 1.2, 1] }}
-          transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-blue-800 opacity-20 rounded-full blur-3xl"
-          animate={{ x: [0, -30, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 12, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-1/2 w-80 h-80 bg-green-700 opacity-10 rounded-full blur-2xl"
-          animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }}
-          transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }}
-        />
+        <motion.div className="absolute top-10 left-10 w-72 h-72 bg-purple-700 opacity-30 rounded-full blur-3xl" animate={{ y: [0, 40, 0], scale: [1, 1.2, 1] }} transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }} />
+        <motion.div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-800 opacity-20 rounded-full blur-3xl" animate={{ x: [0, -30, 0], scale: [1, 1.15, 1] }} transition={{ duration: 12, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }} />
+        <motion.div className="absolute top-1/2 left-1/2 w-80 h-80 bg-green-700 opacity-10 rounded-full blur-2xl" animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }} transition={{ duration: 14, repeat: Infinity, repeatType: 'reverse', ease: 'easeInOut' }} />
       </div>
-      <div className="w-full md:w-1/2 flex justify-center items-start mb-8 md:mb-0 h-72 md:h-screen z-10" style={{marginTop: '-6rem'}}>
-        <img
-          src={profile2}
-          alt="Profile Side"
-          className="w-auto h-full object-cover rounded-3xl shadow-2xl"
-          style={{objectPosition: 'center'}}
-        />
-      </div>
-      {/* Content Section */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-        <motion.h1 
-          className="text-5xl md:text-7xl font-bold mb-4 heading-large text-white"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          I am Ahmed Elsayed
-        </motion.h1>
-        <motion.h2 
-          className="text-xl md:text-2xl font-light mb-8 tracking-wide max-w-3xl mx-auto leading-relaxed text-white/90"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-        >
-          Student at A.I Delta University • Web Developer • Machine Learning Learner • Freelancer • Graphic Designer
-        </motion.h2>
-        <motion.p
-          className="text-lg text-white/80 mb-8 max-w-2xl mx-auto"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-        >
-          Co-leader for BIOCODE DU Club, Data Science Learner, ITI Trainee, Certified Trainee at Zewail City
-        </motion.p>
-        {/* Additional Info Cards */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8"
-        >
-          <div className="glass-card p-4 rounded-xl">
-            <div className="text-2xl mb-2">🎓</div>
-            <h3 className="font-semibold text-white mb-1">Education</h3>
-            <p className="text-white/70 text-sm">AI Student at Delta University</p>
+      <div className="relative z-10 flex flex-col md:flex-row items-center justify-center max-w-7xl mx-auto px-4 gap-8 md:gap-0">
+        {/* Profile Image */}
+        <div className="w-full md:w-1/2 flex justify-center items-start mb-8 md:mb-0 h-72 md:h-screen z-10" style={{marginTop: '-6rem'}}>
+          <img
+            src={profile2}
+            alt="Profile Side"
+            className="w-auto h-full object-cover rounded-3xl shadow-2xl"
+            style={{objectPosition: 'center'}}
+          />
+        </div>
+        {/* Content Section */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+          <motion.h1
+            className="text-5xl md:text-7xl font-extrabold mb-4 bg-gradient-to-r from-[#a7ff83] via-[#17ead9] to-[#005bea] bg-clip-text text-transparent drop-shadow-2xl"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            Ahmed Sneed
+          </motion.h1>
+          <motion.h2
+            className="text-xl md:text-2xl font-light mb-6 tracking-wide max-w-2xl mx-auto md:mx-0 leading-relaxed text-white/90"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            AI Engineer & Web Developer
+          </motion.h2>
+          <motion.p
+            className="text-lg text-white/80 mb-8 max-w-xl mx-auto md:mx-0"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+          >
+            I build smart solutions using Machine Learning, Full Stack, and Business Intelligence. Passionate about innovation, data, and digital experiences.
+          </motion.p>
+          {/* Modern Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+            {sections.map((section, idx) => (
+              <div key={section.title} className="bg-blue-900/70 backdrop-blur-md p-6 rounded-2xl shadow-2xl flex flex-col items-center hover:scale-105 transition-all duration-300 group border border-blue-800/60">
+                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-blue-800/60 mb-3">
+                  {/* Icon: use different icon for each card if you want, or same for all */}
+                  {idx === 0 && (
+                    <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
+                  )}
+                  {idx === 1 && (
+                    <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v8m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="12" r="10"/></svg>
+                  )}
+                  {idx === 2 && (
+                    <svg className="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><path d="M12 14v7m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="7" r="4"/></svg>
+                  )}
+                </div>
+                <h3 className="font-semibold text-white text-xl mb-1">{section.title}</h3>
+                <p className="text-blue-200 text-base mb-2">{section.subtitle}</p>
+                <p className="text-white/80 text-sm text-center mb-3">{section.description}</p>
+                <div className="flex flex-wrap justify-center gap-2 mt-2">
+                  {section.skills.map(skill => (
+                    <span key={skill} className="px-3 py-1 bg-blue-800/60 text-blue-100 rounded-full text-xs font-medium border border-blue-700/40">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="glass-card p-4 rounded-xl">
-            <div className="text-2xl mb-2">🏆</div>
-            <h3 className="font-semibold text-white mb-1">Achievements</h3>
-            <p className="text-white/70 text-sm">3rd Place in Egyptian Junior Researcher</p>
-          </div>
-          <div className="glass-card p-4 rounded-xl">
-            <div className="text-2xl mb-2">💼</div>
-            <h3 className="font-semibold text-white mb-1">Experience</h3>
-            <p className="text-white/70 text-sm">AI Team Manager at Solvesta</p>
-          </div>
-        </motion.div>
-        {/* Rotating Sections */}
-        <motion.div 
-          className="mb-12 max-w-4xl mx-auto"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeSection}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="glass-card p-8 rounded-2xl"
+          {/* Rotating Sections */}
+          <motion.div className="mb-12 max-w-4xl mx-auto" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSection}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="glass-card p-8 rounded-2xl"
+              >
+                <div className={`text-center mb-6`}>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-2 heading-medium text-white">
+                    {sections[activeSection].title}
+                  </h3>
+                  <p className="text-xl text-white/80 mb-4">
+                    {sections[activeSection].subtitle}
+                  </p>
+                  <p className="text-lg text-white/70 leading-relaxed">
+                    {sections[activeSection].description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {sections[activeSection].skills.map((skill, index) => (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 text-white"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </motion.div>
+          {/* CTA Buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-end w-full mt-4"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.4, duration: 0.8 }}
+          >
+            <motion.a
+              href="/cv.pdf"
+              download
+              whileHover={{ scale: 1.07, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-blue-900 to-purple-950 text-white font-bold shadow-lg text-lg transition-all duration-300"
             >
-              <div className={`text-center mb-6`}>
-                <h3 className="text-3xl md:text-4xl font-bold mb-2 heading-medium text-white">
-                  {sections[activeSection].title}
-                </h3>
-                <p className="text-xl text-white/80 mb-4">
-                  {sections[activeSection].subtitle}
-                </p>
-                <p className="text-lg text-white/70 leading-relaxed">
-                  {sections[activeSection].description}
-                </p>
-              </div>
-              <div className="flex flex-wrap justify-center gap-3">
-                {sections[activeSection].skills.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20 text-white"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
-        {/* CTA Buttons */}
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.4, duration: 0.8 }}
-        >
-          <motion.a
-            href="/cv.pdf"
-            download
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="btn-primary btn-hover"
-          >
-            Download CV
-          </motion.a>
-          <motion.a
-            href="mailto:ahmadseneed@gmail.com"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="btn-secondary btn-hover"
-          >
-            Get in Touch
-          </motion.a>
-        </motion.div>
-        {/* Social Links */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.6, duration: 0.8 }}
-          className="flex space-x-6 mt-8"
-        >
-          <motion.a
-            href="https://github.com/ahmadseneed"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.2, y: -2 }}
-            className="text-white/70 hover:text-white transition-colors text-2xl"
-          >
-            📱
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com/in/ahmadseneed"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.2, y: -2 }}
-            className="text-white/70 hover:text-white transition-colors text-2xl"
-          >
-            💼
-          </motion.a>
-          <motion.a
-            href="mailto:ahmadseneed@gmail.com"
-            whileHover={{ scale: 1.2, y: -2 }}
-            className="text-white/70 hover:text-white transition-colors text-2xl"
-          >
-            📧
-          </motion.a>
-        </motion.div>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 4v16m0 0l-6-6m6 6l6-6"/></svg>
+              Download CV
+            </motion.a>
+            <motion.a
+              href="mailto:ahmadseneed@gmail.com"
+              whileHover={{ scale: 1.07, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+              className="flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-purple-950 to-blue-900 text-white font-bold shadow-lg text-lg transition-all duration-300"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 8V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2v-1"/><path d="M3 8l9 6 9-6"/></svg>
+              Get in Touch
+            </motion.a>
+          </motion.div>
+        </div>
       </div>
-    </motion.div>
+      {/* Creative Down Arrow */}
+      <button
+        onClick={handleScrollDown}
+        aria-label="Scroll to next section"
+        className="absolute left-1/2 -translate-x-1/2 bottom-4 z-30 flex flex-col items-center"
+        style={{ outline: 'none' }}
+      >
+        {/* Mouse Scroll Icon */}
+        <span className="w-8 h-12 flex flex-col items-center">
+          <span className="w-6 h-10 rounded-full border-2 border-white/70 flex items-start justify-center relative">
+            <span className="w-1 h-3 bg-white rounded-full absolute top-2 left-1/2 -translate-x-1/2 animate-bounce"></span>
+          </span>
+          <svg className="mt-1 animate-bounce" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 12l4 4 4-4" />
+          </svg>
+        </span>
+      </button>
+    </section>
   );
 }
 
@@ -754,7 +731,7 @@ function Contact() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="min-h-screen bg-gray-950 text-white py-20 px-4"
+      className="min-h-screen bg-gray-950 text-white py-25 px-4"
       id="contact"
     >
       <div className="max-w-4xl mx-auto">
@@ -924,6 +901,7 @@ function AnimatedRoutes() {
 
 function App() {
   const [isDark, setIsDark] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -932,6 +910,9 @@ function App() {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
+    // Simulate loading (e.g., fetching data, assets, etc.)
+    const timer = setTimeout(() => setLoading(false), 1800);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleDarkMode = () => {
@@ -945,11 +926,24 @@ function App() {
     }
   };
 
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
   return (
     <Router>
+      <Navbar isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <div className="App bg-gradient-to-br from-gray-950 via-blue-900 to-purple-950 min-h-screen w-full">
-        <Navbar isDark={isDark} toggleDarkMode={toggleDarkMode} />
-        <AnimatedRoutes />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <AboutHero />
+              <SectionTabs />
+            </>
+          } />
+          <Route path="/*" element={<AnimatedRoutes />} />
+        </Routes>
         {/* Social Media Section */}
         <div className="w-full flex justify-center py-8 bg-transparent">
           <div className="flex space-x-8">
@@ -1106,8 +1100,149 @@ function App() {
       <a href="mailto:ahmadseneed@gmail.com" className="px-8 py-4 bg-gradient-to-r from-[#a7ff83] to-[#17ead9] text-[#232946] font-bold rounded-lg shadow-lg hover:scale-105 transition-all duration-300">Email Me</a>
     </motion.section>
       </div>
+      {/* Footer */}
+      <footer className="w-full py-6 bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-center text-white text-sm mt-12 shadow-inner">
+        <div>© {new Date().getFullYear()} Ahmed Sneed. All rights reserved. </div>
+        <div className="mt-2 flex justify-center gap-4">
+          <a href="https://github.com/ahmadseneed" target="_blank" rel="noopener noreferrer" className="hover:text-[#17ead9] transition-colors">GitHub</a>
+          <a href="https://linkedin.com/in/ahmadseneed" target="_blank" rel="noopener noreferrer" className="hover:text-[#17ead9] transition-colors">LinkedIn</a>
+          <a href="mailto:ahmadseneed@gmail.com" className="hover:text-[#17ead9] transition-colors">Email</a>
+        </div>
+      </footer>
     </Router>
   );
 }
 
 export default App;
+
+// 1. بعد Hero مباشرة في App.js:
+// <HeroTabs />
+// 2. في كلاس الـHero section أو div الرئيسي أضف pt-24 أو pt-20
+
+// أضف مكون HeroTabs:
+function HeroTabs() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabs = [
+    { label: "Machine Learning", icon: "🤖" },
+    { label: "Full Stack", icon: "💻" },
+    { label: "BI", icon: "📊" }
+  ];
+  return (
+    <nav className="w-full flex justify-center mt-[-2.5rem] z-40 relative">
+      <div className="flex bg-gradient-to-r from-gray-950 via-blue-900 to-purple-950 rounded-2xl shadow-xl px-2 py-1 gap-2 border border-white/10">
+        {tabs.map((tab, idx) => (
+          <button
+            key={tab.label}
+            onClick={() => setActiveTab(idx)}
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl font-bold text-base transition-all duration-200
+              ${activeTab === idx
+                ? "bg-white/20 text-[#a7ff83] shadow-lg scale-105"
+                : "text-white/80 hover:bg-white/10"}`}
+          >
+            <span className="text-xl">{tab.icon}</span>
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+// 2. QuickNav creative بعد الـTabs
+function QuickNav() {
+  const navs = [
+    { label: 'About', to: 'about', icon: 'ℹ️' },
+    { label: 'Skills', to: 'skills', icon: '🛠️' },
+    { label: 'Projects', to: 'projects', icon: '🚀' },
+    { label: 'Experience', to: 'experience', icon: '🏆' },
+    { label: 'Contact', to: 'contact', icon: '✉️' }
+  ];
+  return (
+    <div className="w-full flex justify-center mt-6 mb-8 z-30 relative">
+      <div className="flex gap-4 bg-gray-950/80 rounded-full px-6 py-3 shadow-lg border border-white/10">
+        {navs.map(btn => (
+          <button
+            key={btn.label}
+            onClick={() => document.getElementById(btn.to)?.scrollIntoView({ behavior: 'smooth' })}
+            className="flex flex-col items-center justify-center w-14 h-14 rounded-full bg-white/10 text-white font-bold shadow-md hover:scale-110 transition-all duration-200 group"
+          >
+            <span className="text-2xl mb-1">{btn.icon}</span>
+            <span className="text-xs">{btn.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Replace HeroTabs and its usage with a new section below Hero
+function SectionTabs() {
+  const [activeTab, setActiveTab] = useState(0);
+  const tabs = [
+    { label: "Machine Learning", icon: "🤖" },
+    { label: "Full Stack", icon: "💻" },
+    { label: "BI", icon: "📊" }
+  ];
+  const tabContent = [
+    {
+      about: "I specialize in building intelligent ML solutions, from computer vision to NLP, using state-of-the-art frameworks.",
+      cv: "/cv.pdf",
+      projects: "Explore my ML projects, including real-world AI applications and research."
+    },
+    {
+      about: "I develop scalable full stack web apps, handling everything from frontend to backend and cloud deployment.",
+      cv: "/cv.pdf",
+      projects: "See my full stack projects, featuring modern web technologies and robust architectures."
+    },
+    {
+      about: "I turn raw data into actionable insights with BI dashboards and analytics for smarter business decisions.",
+      cv: "/cv.pdf",
+      projects: "Check out my BI projects, including dashboards and data-driven solutions."
+    }
+  ];
+  return (
+    <div className="w-full flex flex-col items-center mt-16 mb-12">
+      <nav className="flex bg-blue-950/80 rounded-2xl shadow-xl px-2 py-1 gap-2 border border-white/10 mb-8 z-10 relative">
+        {tabs.map((tab, idx) => (
+          <button
+            key={tab.label}
+            onClick={() => setActiveTab(idx)}
+            className={`flex items-center gap-2 px-6 py-2 rounded-xl font-bold text-base transition-all duration-200
+              ${activeTab === idx
+                ? "bg-white/20 text-blue-300 shadow-lg scale-105"
+                : "text-white/80 hover:bg-white/10"}`}
+          >
+            <span className="text-xl">{tab.icon}</span>
+            {tab.label}
+          </button>
+        ))}
+      </nav>
+      <div className="w-full max-w-2xl bg-blue-950/70 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-blue-800/60">
+        <h2 className="text-2xl font-bold text-white mb-4">About</h2>
+        <p className="text-white/80 mb-6">{tabContent[activeTab].about}</p>
+        <a href={tabContent[activeTab].cv} download className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-blue-900 to-blue-700 text-white font-bold shadow-lg text-lg transition-all duration-300 mb-4">Download CV</a>
+        <div className="mt-4">
+          <button onClick={() => window.location.hash = '#projects'} className="px-8 py-3 rounded-full bg-blue-700 hover:bg-blue-800 text-white font-bold shadow-lg text-lg transition-all duration-300">Go to Projects</button>
+        </div>
+        <p className="text-white/60 text-sm mt-6">{tabContent[activeTab].projects}</p>
+      </div>
+    </div>
+  );
+}
+
+// Move About section to a new AboutHero component for homepage
+function AboutHero() {
+  return (
+    <section className="w-full flex flex-col items-center justify-center py-12 px-4">
+      <div className="max-w-3xl w-full bg-blue-950/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-blue-800/60 text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">About Me</h2>
+        <p className="text-lg text-gray-300 mb-4">
+          I am Ahmed Elsayed Sneed, a Senior Artificial Intelligence student at Delta University for Science and Technology, specializing in applying AI to solve real-world problems. I am passionate about building smart solutions, web development, and delivering impactful digital experiences.
+        </p>
+        <p className="text-md text-gray-400">
+          I have achieved top placements in numerous AI and tech competitions, and my technical expertise spans various programming languages, frameworks, and tools. I am always eager to learn, collaborate, and innovate.
+        </p>
+      </div>
+    </section>
+  );
+}
