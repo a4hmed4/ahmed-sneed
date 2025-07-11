@@ -15,19 +15,19 @@ function Hero() {
     {
       title: "AI & Machine Learning",
       subtitle: "Smart AI Solutions",
-      description: "Expert in computer vision, NLP, and deep learning. I build AI-powered applications that solve real-world problems and automate complex tasks using the latest ML frameworks.",
+      description: "Innovating with AI to solve real-world challenges.",
       skills: ["TensorFlow", "PyTorch", "NLP"],
     },
     {
       title: "Full Stack Development",
       subtitle: "Modern Web Apps",
-      description: "I design and develop scalable, secure web applications from frontend to backend. Skilled in React, Node.js, and cloud deployment for seamless user experiences.",
+      description: "Building seamless digital experiences end-to-end.",
       skills: ["React", "Node.js", "AWS"],
     },
     {
       title: "Business Intelligence",
       subtitle: "Data Insights",
-      description: "Transforming raw data into actionable insights. I create interactive dashboards and reports that empower decision makers and drive business growth.",
+      description: "Transforming data into actionable business value.",
       skills: ["Power BI", "SQL", "ETL"],
     }
   ];
@@ -80,7 +80,7 @@ function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
           >
-            AI Engineer | BI Developer | full Stack Developer
+            AI Engineer | BI Developer | Full Stack Developer
           </motion.h2>
           <motion.p
             className="text-base text-white/80 mb-6 max-w-xl mx-auto md:mx-0"
@@ -90,8 +90,7 @@ function Hero() {
           >
             Passionate about building smart, real-world digital solutions.
           </motion.p>
-          {/* Modern Cards */}
-          {/* Animated main area card - smaller, with icon and more details like original */}
+          {/* Concise animated card */}
           <div className="flex justify-center w-full mb-8">
             <motion.div className="w-full max-w-md" initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1.2, duration: 0.8 }}>
               <AnimatePresence mode="wait">
@@ -104,21 +103,21 @@ function Hero() {
                   className="glass-card p-6 rounded-2xl shadow-xl bg-blue-900/80 border border-blue-800/60"
                 >
                   <div className="flex flex-col items-center text-center mb-4">
-                    {/* Icon for each area */}
+                    {/* Icon for each area - updated to match SectionTabs */}
                     {activeSection === 0 && (
-                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422A12.083 12.083 0 0112 21.5a12.083 12.083 0 01-6.16-10.922L12 14z"/></svg>
+                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                     )}
                     {activeSection === 1 && (
-                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 8v8m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="12" r="10"/></svg>
+                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
                     )}
                     {activeSection === 2 && (
-                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 7a4 4 0 01-8 0"/><path d="M12 14v7m0 0l-3-3m3 3l3-3"/><circle cx="12" cy="7" r="4"/></svg>
+                      <svg className="w-10 h-10 mb-2 text-blue-200" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
                     )}
                     <h3 className="text-2xl font-bold mb-1 text-white">{sections[activeSection].title}</h3>
                     <p className="text-blue-200 text-base mb-2">{sections[activeSection].subtitle}</p>
                     <p className="text-white/80 text-sm mb-2">{sections[activeSection].description}</p>
                   </div>
-                  <div className="flex flex-wrap justify-center gap-2 mt-2">
+                  <div className="flex flex-wrap justify-center gap-2 mt-2 mb-6">
                     {sections[activeSection].skills.map((skill, index) => (
                       <motion.span
                         key={skill}
@@ -179,7 +178,7 @@ function Hero() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M8 12l4 4 4-4" />
           </svg>
         </span>
-        <span className="text-xs text-white/70 mt-1">About Me</span>
+        <span className="text-xs text-white/70 mt-1"></span>
       </button>
     </section>
   );
@@ -187,6 +186,7 @@ function Hero() {
 
 // About Section
 function About() {
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -919,6 +919,7 @@ function App() {
               <Hero />
               <AboutHero />
               <SectionTabs />
+              <ExperienceTimeline />
             </>
           } />
           <Route path="/*" element={<AnimatedRoutes />} />
@@ -1004,23 +1005,71 @@ function App() {
       id="projects"
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white text-center">Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { title: 'Medicare', desc: 'AI-powered health records system', link: '#' },
-          { title: 'Car Plates Recognition', desc: 'Advanced license plate recognition', link: '#' },
-          { title: 'Smart Dashboard', desc: 'Business intelligence dashboard', link: '#' },
-        ].map(project => (
-          <motion.a
-            key={project.title}
-            href={project.link}
-            className="block bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-white"
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-            <p className="text-gray-300 mb-2">{project.desc}</p>
-            <span className="text-[#a7ff83] text-sm">View Project</span>
-          </motion.a>
-        ))}
+      {/* ML Projects */}
+      <div id="ml-projects" className="mb-12">
+        <h3 className="text-2xl font-bold text-blue-300 mb-4">Machine Learning Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { title: 'Medicare', desc: 'AI-powered health records system', link: '#' },
+            { title: 'Car Plates Recognition', desc: 'Advanced license plate recognition', link: '#' },
+            { title: 'Smart Dashboard', desc: 'Business intelligence dashboard', link: '#' },
+          ].map(project => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              className="block bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-white"
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+              <p className="text-gray-300 mb-2">{project.desc}</p>
+              <span className="text-[#a7ff83] text-sm">View Project</span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+      {/* Full Stack Projects */}
+      <div id="fullstack-projects" className="mb-12">
+        <h3 className="text-2xl font-bold text-blue-300 mb-4">Full Stack Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { title: 'Medicare', desc: 'AI-powered health records system', link: '#' },
+            { title: 'Car Plates Recognition', desc: 'Advanced license plate recognition', link: '#' },
+            { title: 'Smart Dashboard', desc: 'Business intelligence dashboard', link: '#' },
+          ].map(project => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              className="block bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-white"
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+              <p className="text-gray-300 mb-2">{project.desc}</p>
+              <span className="text-[#a7ff83] text-sm">View Project</span>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+      {/* BI Projects */}
+      <div id="bi-projects" className="mb-12">
+        <h3 className="text-2xl font-bold text-blue-300 mb-4">Business Intelligence Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { title: 'Medicare', desc: 'AI-powered health records system', link: '#' },
+            { title: 'Car Plates Recognition', desc: 'Advanced license plate recognition', link: '#' },
+            { title: 'Smart Dashboard', desc: 'Business intelligence dashboard', link: '#' },
+          ].map(project => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              className="block bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-white"
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+              <p className="text-gray-300 mb-2">{project.desc}</p>
+              <span className="text-[#a7ff83] text-sm">View Project</span>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </motion.section>
     {/* Achievements Section */}
@@ -1158,26 +1207,59 @@ function QuickNav() {
 function SectionTabs() {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = [
-    { label: "Machine Learning", icon: "🤖" },
-    { label: "Full Stack", icon: "💻" },
-    { label: "BI", icon: "📊" }
+    { label: "Machine Learning", icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg> }, // ML: lightbulb/idea
+    { label: "Full Stack", icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg> }, // Full Stack: code/lines
+    { label: "BI", icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg> }, // BI: bar chart
   ];
   const tabContent = [
     {
-      about: "I specialize in building intelligent ML solutions, from computer vision to NLP, using state-of-the-art frameworks.",
-      cv: "/cv.pdf",
-      projects: "Explore my ML projects, including real-world AI applications and research."
+      title: "AI & Machine Learning",
+      subtitle: "Smart AI Solutions",
+      details: (
+        <>
+          <div className="font-semibold text-blue-300">Work Experience</div>
+          <div>Extensive experience in building and deploying machine learning models for real-world applications (computer vision, NLP, automation). Skilled in data preprocessing, model training, and deployment using TensorFlow and PyTorch.</div>
+          <div className="font-semibold text-blue-300 mt-2">Tools</div>
+          <div>TensorFlow, PyTorch, Python, Scikit-learn, FastAPI, RESTful APIs</div>
+          <div className="font-semibold text-blue-300 mt-2">Career Objective</div>
+          <div>AI senior student with a strong foundation in data analysis, visualization, and machine learning, aiming to deliver innovative, production-ready AI solutions.</div>
+        </>
+      ),
+      skills: ["TensorFlow", "PyTorch", "Python", "NLP", "Computer Vision"],
+      projectsAnchor: 'ml-projects',
     },
     {
-      about: "I develop scalable full stack web apps, handling everything from frontend to backend and cloud deployment.",
-      cv: "/cv.pdf",
-      projects: "See my full stack projects, featuring modern web technologies and robust architectures."
+      title: "Full Stack Development",
+      subtitle: "Modern Web Apps",
+      details: (
+        <>
+          <div className="font-semibold text-blue-300">Work Experience</div>
+          <div>4 years in front-end (HTML, CSS, JS, Bootstrap, ReactJS), 3 years in backend (Streamlit, Django, Flask, NextJS, PHP). Integrated AI models into websites using RESTful API and FastAPI. Delivered many projects for real clients.</div>
+          <div className="font-semibold text-blue-300 mt-2">Tools</div>
+          <div>ReactJS, Node.js, Django, Flask, NextJS, Streamlit, RESTful APIs</div>
+          <div className="font-semibold text-blue-300 mt-2">Career Objective</div>
+          <div>AI senior student with a strong foundation in data analysis, visualization, and machine learning, seeking to launch a career in full-stack development and deliver scalable, interactive web applications.</div>
+        </>
+      ),
+      skills: ["ReactJS", "Node.js", "Django", "Flask", "NextJS"],
+      projectsAnchor: 'fullstack-projects',
     },
     {
-      about: "I turn raw data into actionable insights with BI dashboards and analytics for smarter business decisions.",
-      cv: "/cv.pdf",
-      projects: "Check out my BI projects, including dashboards and data-driven solutions."
-    }
+      title: "Business Intelligence",
+      subtitle: "Data Insights",
+      details: (
+        <>
+          <div className="font-semibold text-blue-300">Work Experience</div>
+          <div>3 years in DB fundamentals, Data Warehousing, Advanced SQL, and data analysis & visualization with Python. 6 months in PowerBI, Tableau, Excel. Worked on advanced BI projects using Tableau and PowerBI.</div>
+          <div className="font-semibold text-blue-300 mt-2">Tools</div>
+          <div>PowerBI, Tableau, SQL, Python, Excel, ETL pipelines</div>
+          <div className="font-semibold text-blue-300 mt-2">Career Objective</div>
+          <div>BI developer striving to achieve more progress by working on advanced projects that have a positive impact in the field.</div>
+        </>
+      ),
+      skills: ["PowerBI", "Tableau", "SQL", "Python", "Excel"],
+      projectsAnchor: 'bi-projects',
+    },
   ];
   return (
     <div className="w-full flex flex-col items-center mt-16 mb-12">
@@ -1197,13 +1279,24 @@ function SectionTabs() {
         ))}
       </nav>
       <div className="w-full max-w-2xl bg-blue-950/70 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-blue-800/60">
-        <h2 className="text-2xl font-bold text-white mb-4">About</h2>
-        <p className="text-white/80 mb-6">{tabContent[activeTab].about}</p>
-        <a href={tabContent[activeTab].cv} download className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-blue-900 to-blue-700 text-white font-bold shadow-lg text-lg transition-all duration-300 mb-4">Download CV</a>
-        <div className="mt-4">
-          <button onClick={() => window.location.hash = '#projects'} className="px-8 py-3 rounded-full bg-blue-700 hover:bg-blue-800 text-white font-bold shadow-lg text-lg transition-all duration-300">Go to Projects</button>
+        <h3 className="text-xl font-bold mb-1 text-white">{tabContent[activeTab].title}</h3>
+        <p className="text-blue-200 text-base mb-2">{tabContent[activeTab].subtitle}</p>
+        <div className="text-white/80 text-sm mb-4">{tabContent[activeTab].details}</div>
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          {tabContent[activeTab].skills.map(skill => (
+            <span key={skill} className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-medium border border-white/20 text-white">{skill}</span>
+          ))}
         </div>
-        <p className="text-white/60 text-sm mt-6">{tabContent[activeTab].projects}</p>
+        <a
+          href={`/projects#${tabContent[activeTab].projectsAnchor}`}
+          className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-700 hover:bg-blue-600 text-white font-semibold shadow-md transition-all duration-200 text-base mt-auto"
+          style={{ minWidth: 120 }}
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M3 7v13h18V7M16 3v4M8 3v4M3 10h18" />
+          </svg>
+          Projects
+        </a>
       </div>
     </div>
   );
@@ -1211,9 +1304,12 @@ function SectionTabs() {
 
 // Move About section to a new AboutHero component for homepage
 function AboutHero() {
+  const handleGoToAboutPage = () => {
+    window.location.href = '/about';
+  };
   return (
     <section id="about-hero-section" className="w-full flex flex-col items-center justify-center py-12 px-4">
-      <div className="max-w-3xl w-full bg-blue-950/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-blue-800/60 text-center mb-8">
+      <div className="max-w-3xl w-full bg-blue-950/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-blue-800/60 text-center mb-8 relative overflow-hidden">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">About Me</h2>
         <p className="text-lg text-gray-300 mb-4">
           I am Ahmed Elsayed Sneed, a Senior Artificial Intelligence student at Delta University for Science and Technology, specializing in applying AI to solve real-world problems. I am passionate about building smart solutions, web development, and delivering impactful digital experiences.
@@ -1221,6 +1317,144 @@ function AboutHero() {
         <p className="text-md text-gray-400">
           I have achieved top placements in numerous AI and tech competitions, and my technical expertise spans various programming languages, frameworks, and tools. I am always eager to learn, collaborate, and innovate.
         </p>
+        {/* Clickable animated info icon at the bottom center with 'More' text */}
+        <button
+          onClick={handleGoToAboutPage}
+          title="Go to About Page"
+          className="absolute left-1/2 -translate-x-1/2 bottom-4 bg-blue-700/80 hover:bg-blue-600 text-white rounded-full px-5 py-3 shadow-lg focus:outline-none transition-all duration-200 group flex items-center gap-2"
+          style={{ zIndex: 2 }}
+        >
+          <span className="relative flex items-center justify-center">
+            {/* Info icon with pulse animation */}
+            <svg className="w-7 h-7 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <circle cx="12" cy="16" r="1" />
+            </svg>
+            <span className="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-60 group-hover:opacity-80 animate-ping"></span>
+          </span>
+          <span className="ml-2 text-base font-semibold tracking-wide">More</span>
+        </button>
+      </div>
+      
+      {/* Social Media Icons */}
+      <div className="flex justify-center space-x-6 mb-8">
+        <a
+          href="mailto:ahmadseneed@gmail.com"
+          className="flex flex-col items-center text-gray-200 hover:text-[#17ead9] transition-all duration-300 group"
+        >
+          <div className="w-12 h-12 bg-blue-950/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg border border-blue-800/60 group-hover:scale-110 transition-transform">
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <span className="text-xs mt-2">Gmail</span>
+        </a>
+        
+        <a
+          href="https://wa.me/+201234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center text-gray-200 hover:text-[#17ead9] transition-all duration-300 group"
+        >
+          <div className="w-12 h-12 bg-blue-950/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg border border-blue-800/60 group-hover:scale-110 transition-transform">
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+          </div>
+          <span className="text-xs mt-2">WhatsApp</span>
+        </a>
+        
+        <a
+          href="https://github.com/ahmadseneed"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center text-gray-200 hover:text-[#17ead9] transition-all duration-300 group"
+        >
+          <div className="w-12 h-12 bg-blue-950/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg border border-blue-800/60 group-hover:scale-110 transition-transform">
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </div>
+          <span className="text-xs mt-2">GitHub</span>
+        </a>
+        
+        <a
+          href="https://linkedin.com/in/ahmadseneed"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center text-gray-200 hover:text-[#17ead9] transition-all duration-300 group"
+        >
+          <div className="w-12 h-12 bg-blue-950/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg border border-blue-800/60 group-hover:scale-110 transition-transform">
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </div>
+          <span className="text-xs mt-2">LinkedIn</span>
+        </a>
+      </div>
+    </section>
+  );
+}
+
+// Experience Timeline Section
+function ExperienceTimeline() {
+  const experiences = [
+    { title: "AI Team Manager", company: "Solvesta (startup Comp.)", period: "from Apr 2025 to Present" },
+    { title: "Instructor", company: "Knowledge makers.", period: "from May 2025 to Present" },
+    { title: "Trainer", company: "the training unit in Sanad Shabab El-Delta", period: "from Nov 2023 to Jan 2025" },
+  ];
+
+  const handleGoToExperiencePage = () => {
+    window.location.href = '/experience';
+  };
+
+  return (
+    <section className="w-full py-16 px-4">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white text-center">Experience</h2>
+        
+        {/* Horizontal Timeline */}
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-blue-800/50 transform -translate-y-1/2"></div>
+          
+          {/* Timeline Items */}
+          <div className="flex justify-between items-center relative z-10">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center"
+              >
+                {/* Timeline Dot */}
+                <div className="w-4 h-4 bg-blue-500 rounded-full mb-4 shadow-lg"></div>
+                {/* Experience Card */}
+                <div className="bg-blue-950/80 backdrop-blur-md rounded-xl p-4 shadow-xl border border-blue-800/60 text-center max-w-60 flex flex-col items-center">
+                  <span className="text-base font-bold text-white mb-1">{exp.title}</span>
+                  <span className="text-sm text-blue-100 mb-1">at {exp.company}</span>
+                  <span className="text-xs text-blue-200/80 font-medium mt-1 tracking-wide">({exp.period})</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        
+        {/* More Button */}
+        <div className="flex justify-center mt-12">
+          <button
+            onClick={handleGoToExperiencePage}
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-blue-700 hover:bg-blue-600 text-white font-semibold shadow-lg transition-all duration-200 text-lg"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+            More
+          </button>
+        </div>
       </div>
     </section>
   );
